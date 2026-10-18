@@ -1,0 +1,33 @@
+import { test, expect } from '@playwright/test';
+
+test('heroku', async ({ page }) => {
+  await page.goto('https://www.google.com/search?q=herokuapp&oq=herokuapp&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTE0NTIyajBqMqgCALACAQ&sourceid=chrome&ie=UTF-8');
+  await page.goto('https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dherokuapp%26oq%3Dherokuapp%26gs_lcrp%3DEgZjaHJvbWUyBggAEEUYOdIBCTE0NTIyajBqMqgCALACAQ%26sourceid%3Dchrome%26ie%3DUTF-8%26sei%3DJqqmasnuJtCO9u8PnsDOsAI&q=EgScx0eBGKbUmtUGIjAmgzryOR19T-bJZKBVSIRclsFQnS_F-B-vAQcvvliSBJ4OAkpPJL_Ni6_7uRt2BH0yAVJaAUM');
+  await page.goto('about:blank');
+  await page.goto('https://the-internet.herokuapp.com/');
+  await expect(page.getByRole('heading', { name: 'Welcome to the-internet1' })).toBeVisible();
+  await expect(page.locator('h1')).toContainText('Welcome to the-internet');
+  await page.getByRole('link', { name: 'Form Authentication' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).fill('tomsmith');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password' }).fill('S');
+  await page.getByRole('textbox', { name: 'Password' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password' }).fill('Super');
+  await page.getByRole('textbox', { name: 'Password' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password' }).fill('SuperS');
+  await page.getByRole('textbox', { name: 'Password' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password' }).fill('SuperSecret');
+  await page.getByRole('textbox', { name: 'Password' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password' }).fill('SuperSecretP');
+  await page.getByRole('textbox', { name: 'Password' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password' }).fill('SuperSecretPassword!');
+  await expect(page.getByRole('button', { name: ' Login' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Password' })).toBeVisible();
+  await page.getByRole('button', { name: ' Login' }).click();
+  await expect(page.getByText('You logged into a secure area')).toBeVisible();
+  await expect(page.locator('#flash')).toContainText('You logged into a secure area! ×');
+  await expect(page.getByRole('link', { name: 'Logout' })).toBeVisible();
+  await page.getByRole('link', { name: 'Logout' }).click();
+});

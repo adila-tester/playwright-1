@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8","outside suite @smoke2","chromium","2026-10-18","passed","2026-10-18","","pom.spec.ts","",""
+"","9","outside suite @smoke","chromium","2026-10-18","passed","2026-10-18","","pom.spec.ts","",""
+"","10","outside suite @sanity","chromium","2026-10-18","passed","2026-10-18","","pom.spec.ts","",""
+"","1313","E2E","chromium","2026-10-18","passed","2026-10-18","suite 1","pom.spec.ts","",""
