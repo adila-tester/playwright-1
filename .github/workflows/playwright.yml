@@ -1,5 +1,7 @@
 name: Playwright Tests morning pipeline for playwright tests
 on:
+  schedule:
+    - cron: '0 12 * * *'
   push:
     branches: 
     - '**'
