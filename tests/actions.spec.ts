@@ -167,7 +167,7 @@ test('confirmation cancel',async({page})=>{
 
 });
 
-test.only('cancel prompt',async({page})=>{
+test('cancel prompt',async({page})=>{
 
     await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
 
@@ -182,7 +182,7 @@ test.only('cancel prompt',async({page})=>{
 
 });
 
-test.only('prompt ok',async({page})=>{
+test('prompt ok',async({page})=>{
 
     await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
 
